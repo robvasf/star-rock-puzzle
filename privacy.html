@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Star Rock Puzzle</title>
+  <meta name="description" content="Public Privacy Policy for Star Rock Puzzle. Information on Google Play Games Services, cloud saves, data protection, and data deletion requests." />
+  <link rel="canonical" href="https://robvasf.github.io/star-rock-puzzle/privacy.html" />
+  <link rel="icon" type="image/png" href="Assets/StarRockPuzzle/Sprites/Android/star_rock_round.png" />
+  <style>
+    :root {
+      --bg-deep: #28242E;
+      --bg-indigo: #383552;
+      --bg-plum: #533B43;
+      --border-plum: #58485E;
+      --slate-blue: #344B68;
+      --parchment: #F0DBB8;
+      --cream: #FFFBDE;
+      --stone: #DBD6CA;
+      --gold: #DEB272;
+      --gold-light: #E3C88F;
+      --gold-bright: #EDE295;
+      --copper: #CB9368;
+      --brown: #754E4E;
+      --coral: #BD516D;
+      --mint: #B9EADA;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, sans-serif;
+      background-color: var(--bg-deep);
+      background-image:
+        radial-gradient(circle at 15% 10%, rgba(88, 72, 94, 0.35) 0%, transparent 45%),
+        radial-gradient(circle at 85% 90%, rgba(52, 75, 104, 0.35) 0%, transparent 45%);
+      color: var(--cream);
+      line-height: 1.65;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pixel {
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+
+    header.site-header {
+      background-color: var(--bg-indigo);
+      border-bottom: 4px solid var(--bg-deep);
+      box-shadow: 0 4px 0 var(--border-plum);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: var(--gold-bright);
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+    }
+
+    .brand img {
+      width: 34px;
+      height: 34px;
+      border: 2px solid var(--bg-deep);
+      border-radius: 6px;
+      background: var(--bg-deep);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    nav.site-nav {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    nav.site-nav a {
+      text-decoration: none;
+      color: var(--parchment);
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 0.42rem 0.8rem;
+      border-radius: 6px;
+      border: 2px solid transparent;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    nav.site-nav a:hover {
+      background-color: var(--border-plum);
+      color: var(--cream);
+    }
+
+    nav.site-nav a.active {
+      background-color: var(--gold);
+      color: var(--bg-deep);
+      border-color: var(--bg-deep);
+      box-shadow: 0 2px 0 var(--brown);
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      background-color: var(--bg-deep);
+      border: 2px solid var(--border-plum);
+      border-radius: 7px;
+      padding: 2px;
+      gap: 2px;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--stone);
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.28rem 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .lang-btn:hover {
+      color: var(--cream);
+      background-color: var(--border-plum);
+    }
+
+    .lang-btn[aria-pressed="true"] {
+      background-color: var(--mint);
+      color: var(--bg-deep);
+    }
+
+    main {
+      max-width: 860px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+      flex: 1;
+    }
+
+    .page-banner {
+      background: linear-gradient(180deg, var(--bg-indigo) 0%, var(--slate-blue) 100%);
+      border: 4px solid var(--gold);
+      border-radius: 14px;
+      padding: 1.65rem 1.5rem;
+      margin-bottom: 1.75rem;
+      box-shadow: 0 6px 0 var(--bg-deep), inset 0 0 0 3px var(--bg-deep);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .page-banner img {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+    }
+
+    .page-banner h1 {
+      font-size: 1.65rem;
+      color: var(--gold-bright);
+      line-height: 1.2;
+    }
+
+    .page-banner p {
+      color: var(--parchment);
+      font-size: 0.94rem;
+      margin-top: 0.25rem;
+    }
+
+    .doc-panel {
+      background-color: var(--parchment);
+      color: var(--bg-deep);
+      border: 4px solid var(--bg-deep);
+      border-radius: 12px;
+      padding: 1.85rem 1.75rem;
+      box-shadow: 0 6px 0 var(--bg-plum), inset 0 0 0 3px var(--copper);
+    }
+
+    .doc-panel section + section {
+      margin-top: 1.6rem;
+      padding-top: 1.35rem;
+      border-top: 2px solid var(--copper);
+    }
+
+    .doc-panel h2 {
+      font-size: 1.18rem;
+      color: var(--bg-plum);
+      margin-bottom: 0.55rem;
+    }
+
+    .doc-panel p,
+    .doc-panel li {
+      color: var(--bg-deep);
+      font-size: 0.97rem;
+    }
+
+    .doc-panel ul {
+      margin-top: 0.5rem;
+      padding-left: 1.3rem;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .contact-box {
+      margin-top: 0.85rem;
+      background-color: var(--cream);
+      border: 3px solid var(--bg-deep);
+      border-radius: 8px;
+      padding: 0.95rem 1.1rem;
+      box-shadow: 0 3px 0 var(--copper);
+    }
+
+    .contact-box a {
+      color: var(--coral);
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    footer.site-footer {
+      background-color: var(--bg-indigo);
+      border-top: 4px solid var(--bg-deep);
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      color: var(--stone);
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.65rem;
+    }
+
+    .footer-links a {
+      color: var(--gold-light);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+      color: var(--cream);
+    }
+
+    @media (max-width: 600px) {
+      .doc-panel {
+        padding: 1.25rem 1.1rem;
+      }
+      .page-banner h1 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html">
+        <img class="pixel" src="Assets/StarRockPuzzle/Resources/Sprites/spr_entity_rock_star.png" alt="Star Rock" />
+        <span>Star Rock Puzzle</span>
+      </a>
+      <div class="nav-right">
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="index.html" data-i18n="nav_home">Home</a>
+          <a class="active" href="privacy.html" data-i18n="nav_privacy">Privacy</a>
+          <a href="terms.html" data-i18n="nav_terms">Terms</a>
+        </nav>
+        <div class="lang-switch" role="group" aria-label="Language selector">
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+          <button type="button" class="lang-btn" data-lang="it" aria-pressed="false">IT</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-banner">
+      <img class="pixel" src="Assets/StarRockPuzzle/Resources/Sprites/spr_prop_chest_open.png" alt="Sanctuary chest" />
+      <div>
+        <h1 data-i18n="banner_title">Privacy Policy</h1>
+        <p data-i18n="banner_date">Star Rock Puzzle &middot; Last updated: November 25, 2026</p>
+      </div>
+    </div>
+
+    <article class="doc-panel">
+      <section>
+        <h2 data-i18n="s1_title">1. Controller &amp; Contact</h2>
+        <p data-i18n-html="s1_p1">
+          This Privacy Policy explains how <strong>Star Rock Puzzle</strong> handles player information.
+          For any privacy questions, technical support, or data requests, please contact us directly at:
+        </p>
+        <div class="contact-box">
+          <strong data-i18n="contact_label">Support &amp; Privacy Email:</strong>
+          <a href="mailto:star-rock-puzzle@googlegroups.com">star-rock-puzzle@googlegroups.com</a>
+        </div>
+      </section>
+
+      <section>
+        <h2 data-i18n="s2_title">2. Information We Handle</h2>
+        <p data-i18n="s2_p1">
+          The game is built to operate with the minimum amount of information required:
+        </p>
+        <ul>
+          <li data-i18n-html="s2_li1">
+            <strong>Basic account data (optional, via Google Play Games Services):</strong> if you choose to sign in with your Google account, we only receive your Play Games player identifier and your public profile name (<em>Display Name</em>) to identify you in-game and on leaderboards.
+          </li>
+          <li data-i18n-html="s2_li2">
+            <strong>Game progress &amp; preferences:</strong> completed levels, best scores/moves, earned gold, Altar offerings, unlocked achievements, owned cosmetics, and local settings (sound, music, vibration).
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-i18n="s3_title">3. Purpose of Processing</h2>
+        <p data-i18n="s3_p1">The data listed above is used strictly to:</p>
+        <ul>
+          <li data-i18n="s3_li1">Authenticate your player profile through Google Play Games Services.</li>
+          <li data-i18n-html="s3_li2">Save and synchronize your game progress in the cloud (<em>Saved Games</em>) across devices.</li>
+          <li data-i18n="s3_li3">Record unlocked achievements and scores on the game's official leaderboards.</li>
+          <li data-i18n="s3_li4">Respond to support requests voluntarily sent via email.</li>
+        </ul>
+        <p style="margin-top: 0.65rem;" data-i18n-html="s3_p2">
+          We <strong>do not</strong> collect passwords, financial details, precise location, or contacts, and we <strong>do not</strong> sell or share your data with third parties for advertising or marketing purposes.
+        </p>
+      </section>
+
+      <section>
+        <h2 data-i18n="s4_title">4. How Your Information Is Protected</h2>
+        <p data-i18n="s4_p1">
+          Communication between the app and Google Play Games Services takes place over encrypted channels (HTTPS/TLS) managed by Google's official infrastructure.
+          Local progress is stored in the app's private storage on your device, and cloud backups are protected under your Google account's security controls.
+        </p>
+      </section>
+
+      <section>
+        <h2 data-i18n="s5_title">5. Support &amp; Data Deletion</h2>
+        <p data-i18n="s5_p1">You can request support or deletion of your associated data at any time:</p>
+        <ul>
+          <li data-i18n-html="s5_li1">
+            <strong>By email:</strong> write to <a href="mailto:star-rock-puzzle@googlegroups.com" style="color: var(--coral); font-weight: 700;">star-rock-puzzle@googlegroups.com</a> stating your request (support or data deletion) and the details needed to locate your inquiry.
+          </li>
+          <li data-i18n-html="s5_li2">
+            <strong>From your Google account:</strong> you can revoke app access and delete cloud-saved data from your Google Play Games privacy settings on your device or Google account.
+          </li>
+          <li data-i18n-html="s5_li3">
+            <strong>Local data:</strong> you can clear app storage or uninstall Star Rock Puzzle from your device to erase locally saved data.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-i18n="s6_title">6. Changes to This Policy</h2>
+        <p data-i18n="s6_p1">
+          If we update game features or connected services, we will publish the revised policy on this page with an updated revision date.
+        </p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
+      <a href="terms.html" data-i18n="footer_terms">Terms of Service</a>
+      <a href="mailto:star-rock-puzzle@googlegroups.com">star-rock-puzzle@googlegroups.com</a>
+    </div>
+    <p data-i18n="copyright">&copy; 2026 Star Rock Puzzle. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function () {
+      var T = {
+        en: {
+          page_title: "Privacy Policy — Star Rock Puzzle",
+          nav_home: "Home",
+          nav_privacy: "Privacy",
+          nav_terms: "Terms",
+          banner_title: "Privacy Policy",
+          banner_date: "Star Rock Puzzle \u00b7 Last updated: November 25, 2026",
+          s1_title: "1. Controller & Contact",
+          s1_p1: "This Privacy Policy explains how <strong>Star Rock Puzzle</strong> handles player information. For any privacy questions, technical support, or data requests, please contact us directly at:",
+          contact_label: "Support & Privacy Email:",
+          s2_title: "2. Information We Handle",
+          s2_p1: "The game is built to operate with the minimum amount of information required:",
+          s2_li1: "<strong>Basic account data (optional, via Google Play Games Services):</strong> if you choose to sign in with your Google account, we only receive your Play Games player identifier and your public profile name (<em>Display Name</em>) to identify you in-game and on leaderboards.",
+          s2_li2: "<strong>Game progress &amp; preferences:</strong> completed levels, best scores/moves, earned gold, Altar offerings, unlocked achievements, owned cosmetics, and local settings (sound, music, vibration).",
+          s3_title: "3. Purpose of Processing",
+          s3_p1: "The data listed above is used strictly to:",
+          s3_li1: "Authenticate your player profile through Google Play Games Services.",
+          s3_li2: "Save and synchronize your game progress in the cloud (<em>Saved Games</em>) across devices.",
+          s3_li3: "Record unlocked achievements and scores on the game's official leaderboards.",
+          s3_li4: "Respond to support requests voluntarily sent via email.",
+          s3_p2: "We <strong>do not</strong> collect passwords, financial details, precise location, or contacts, and we <strong>do not</strong> sell or share your data with third parties for advertising or marketing purposes.",
+          s4_title: "4. How Your Information Is Protected",
+          s4_p1: "Communication between the app and Google Play Games Services takes place over encrypted channels (HTTPS/TLS) managed by Google's official infrastructure. Local progress is stored in the app's private storage on your device, and cloud backups are protected under your Google account's security controls.",
+          s5_title: "5. Support & Data Deletion",
+          s5_p1: "You can request support or deletion of your associated data at any time:",
+          s5_li1: '<strong>By email:</strong> write to <a href="mailto:star-rock-puzzle@googlegroups.com" style="color: var(--coral); font-weight: 700;">star-rock-puzzle@googlegroups.com</a> stating your request (support or data deletion) and the details needed to locate your inquiry.',
+          s5_li2: "<strong>From your Google account:</strong> you can revoke app access and delete cloud-saved data from your Google Play Games privacy settings on your device or Google account.",
+          s5_li3: "<strong>Local data:</strong> you can clear app storage or uninstall Star Rock Puzzle from your device to erase locally saved data.",
+          s6_title: "6. Changes to This Policy",
+          s6_p1: "If we update game features or connected services, we will publish the revised policy on this page with an updated revision date.",
+          footer_privacy: "Privacy Policy",
+          footer_terms: "Terms of Service",
+          copyright: "\u00a9 2026 Star Rock Puzzle. All rights reserved."
+        },
+        es: {
+          page_title: "Política de Privacidad — Star Rock Puzzle",
+          nav_home: "Inicio",
+          nav_privacy: "Privacidad",
+          nav_terms: "Condiciones",
+          banner_title: "Política de Privacidad",
+          banner_date: "Star Rock Puzzle \u00b7 Última actualización: 25 de noviembre de 2026",
+          s1_title: "1. Responsable y contacto",
+          s1_p1: "Esta Política de Privacidad describe cómo <strong>Star Rock Puzzle</strong> gestiona la información de sus jugadores. Para cualquier consulta sobre privacidad, soporte técnico o solicitud sobre tus datos, puedes escribirnos directamente a:",
+          contact_label: "Correo de soporte y privacidad:",
+          s2_title: "2. Qué datos se gestionan",
+          s2_p1: "El juego está diseñado para funcionar con la mínima cantidad de información posible:",
+          s2_li1: "<strong>Datos básicos de cuenta (opcional, mediante Google Play Games Services):</strong> si decides iniciar sesión con tu cuenta de Google, recibimos únicamente tu identificador de jugador de Play Games y tu nombre público de perfil (<em>Display Name</em>) para identificarte dentro del juego y en los marcadores.",
+          s2_li2: "<strong>Progreso y preferencias de juego:</strong> niveles completados, mejores puntuaciones o movimientos, oro obtenido, ofrendas del altar, logros desbloqueados, cosméticos adquiridos y ajustes locales (sonido, música, vibración).",
+          s3_title: "3. Finalidad del tratamiento",
+          s3_p1: "Los datos indicados se utilizan exclusivamente para:",
+          s3_li1: "Autenticar tu perfil de jugador en Google Play Games Services.",
+          s3_li2: "Guardar y sincronizar tu progreso en la nube (<em>Saved Games</em>) entre dispositivos.",
+          s3_li3: "Registrar logros desbloqueados y puntuaciones en los marcadores oficiales del juego.",
+          s3_li4: "Atender solicitudes de soporte enviadas voluntariamente por correo electrónico.",
+          s3_p2: "<strong>No</strong> recopilamos contraseñas, datos bancarios, ubicación precisa ni agenda de contactos, y <strong>no</strong> vendemos ni compartimos tus datos con terceros con fines publicitarios o comerciales.",
+          s4_title: "4. Cómo se protege tu información",
+          s4_p1: "La comunicación entre la aplicación y los servicios de Google Play Games se realiza mediante canales cifrados (HTTPS/TLS) gestionados por la infraestructura oficial de Google. El progreso local se almacena en el espacio privado de la aplicación en tu dispositivo y la copia en la nube se resguarda bajo las medidas de seguridad de tu propia cuenta de Google.",
+          s5_title: "5. Soporte y eliminación de datos",
+          s5_p1: "Puedes solicitar soporte o la eliminación de tus datos asociados en cualquier momento:",
+          s5_li1: '<strong>Por correo electrónico:</strong> escribe a <a href="mailto:star-rock-puzzle@googlegroups.com" style="color: var(--coral); font-weight: 700;">star-rock-puzzle@googlegroups.com</a> indicando tu solicitud (soporte o eliminación de datos) y los detalles necesarios para identificar tu consulta.',
+          s5_li2: "<strong>Desde tu cuenta de Google:</strong> puedes revocar el acceso del juego y eliminar los datos guardados en la nube desde la configuración de privacidad de Google Play Games en tu dispositivo o cuenta de Google.",
+          s5_li3: "<strong>Datos locales:</strong> puedes borrar el almacenamiento de la aplicación o desinstalar Star Rock Puzzle en tu dispositivo para eliminar las partidas guardadas localmente.",
+          s6_title: "6. Cambios en esta política",
+          s6_p1: "Si actualizamos las funcionalidades del juego o los servicios conectados, publicaremos la versión revisada en esta misma página indicando la fecha de actualización.",
+          footer_privacy: "Política de Privacidad",
+          footer_terms: "Condiciones del Servicio",
+          copyright: "\u00a9 2026 Star Rock Puzzle. Todos los derechos reservados."
+        },
+        it: {
+          page_title: "Informativa sulla Privacy — Star Rock Puzzle",
+          nav_home: "Home",
+          nav_privacy: "Privacy",
+          nav_terms: "Termini",
+          banner_title: "Informativa sulla Privacy",
+          banner_date: "Star Rock Puzzle \u00b7 Ultimo aggiornamento: 25 novembre 2026",
+          s1_title: "1. Titolare e contatti",
+          s1_p1: "La presente Informativa sulla Privacy spiega come <strong>Star Rock Puzzle</strong> gestisce le informazioni dei giocatori. Per qualsiasi domanda sulla privacy, supporto tecnico o richiesta sui dati, puoi scriverci direttamente a:",
+          contact_label: "Email di supporto e privacy:",
+          s2_title: "2. Dati gestiti",
+          s2_p1: "Il gioco è progettato per funzionare con la minima quantità di informazioni necessarie:",
+          s2_li1: "<strong>Dati di base dell'account (facoltativi, tramite Google Play Games Services):</strong> se scegli di accedere con il tuo account Google, riceviamo esclusivamente l'identificativo giocatore di Play Games e il nome pubblico del profilo (<em>Display Name</em>) per identificarti nel gioco e nelle classifiche.",
+          s2_li2: "<strong>Progressi e preferenze di gioco:</strong> livelli completati, migliori punteggi o mosse, oro ottenuto, offerte dell'Altare, obiettivi sbloccati, oggetti estetici posseduti e impostazioni locali (audio, musica, vibrazione).",
+          s3_title: "3. Finalità del trattamento",
+          s3_p1: "I dati indicati sono utilizzati esclusivamente per:",
+          s3_li1: "Autenticare il tuo profilo giocatore tramite Google Play Games Services.",
+          s3_li2: "Salvare e sincronizzare i progressi di gioco nel cloud (<em>Saved Games</em>) tra dispositivi.",
+          s3_li3: "Registrare gli obiettivi sbloccati e i punteggi nelle classifiche ufficiali del gioco.",
+          s3_li4: "Rispondere alle richieste di supporto inviate volontariamente via email.",
+          s3_p2: "<strong>Non</strong> raccogliamo password, dati bancari, posizione precisa o rubrica contatti e <strong>non</strong> vendiamo né condividiamo i tuoi dati con terze parti per scopi pubblicitari o commerciali.",
+          s4_title: "4. Come proteggiamo le tue informazioni",
+          s4_p1: "La comunicazione tra l'app e i servizi Google Play Games avviene tramite canali crittografati (HTTPS/TLS) gestiti dall'infrastruttura ufficiale di Google. I progressi locali sono salvati nello spazio privato dell'app sul dispositivo e il backup cloud è protetto dalle misure di sicurezza del tuo account Google.",
+          s5_title: "5. Supporto ed eliminazione dei dati",
+          s5_p1: "Puoi richiedere assistenza o l'eliminazione dei dati associati in qualsiasi momento:",
+          s5_li1: '<strong>Via email:</strong> scrivi a <a href="mailto:star-rock-puzzle@googlegroups.com" style="color: var(--coral); font-weight: 700;">star-rock-puzzle@googlegroups.com</a> indicando la tua richiesta (supporto o eliminazione dei dati) e i dettagli necessari.',
+          s5_li2: "<strong>Dal tuo account Google:</strong> puoi revocare l'accesso dell'app ed eliminare i dati salvati nel cloud dalle impostazioni sulla privacy di Google Play Games sul dispositivo o sull'account Google.",
+          s5_li3: "<strong>Dati locali:</strong> puoi cancellare i dati dell'app o disinstallare Star Rock Puzzle dal dispositivo per rimuovere i salvataggi locali.",
+          s6_title: "6. Modifiche alla presente informativa",
+          s6_p1: "In caso di aggiornamento delle funzionalità del gioco o dei servizi collegati, pubblicheremo la versione aggiornata su questa pagina indicando la data di revisione.",
+          footer_privacy: "Informativa sulla Privacy",
+          footer_terms: "Termini di Servizio",
+          copyright: "\u00a9 2026 Star Rock Puzzle. Tutti i diritti riservati."
+        }
+      };
+
+      function applyLang(lang) {
+        if (!T[lang]) lang = "en";
+        var dict = T[lang];
+        document.documentElement.lang = lang;
+        document.title = dict.page_title;
+        document.querySelectorAll("[data-i18n]").forEach(function (el) {
+          var k = el.getAttribute("data-i18n");
+          if (dict[k] !== undefined) el.textContent = dict[k];
+        });
+        document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+          var k = el.getAttribute("data-i18n-html");
+          if (dict[k] !== undefined) el.innerHTML = dict[k];
+        });
+        document.querySelectorAll(".lang-btn").forEach(function (btn) {
+          btn.setAttribute("aria-pressed", btn.getAttribute("data-lang") === lang ? "true" : "false");
+        });
+        try { localStorage.setItem("srp_lang", lang); } catch (e) {}
+      }
+
+      document.querySelectorAll(".lang-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          applyLang(btn.getAttribute("data-lang"));
+        });
+      });
+
+      var saved = "en";
+      try { saved = localStorage.getItem("srp_lang") || "en"; } catch (e) {}
+      var param = new URLSearchParams(window.location.search).get("lang");
+      if (param && T[param]) saved = param;
+      if (saved !== "en") applyLang(saved);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Star Rock Puzzle</title>
+  <meta name="description" content="Public Terms of Service for Star Rock Puzzle. Acceptable use rules, Google Play Games services, limitation of liability, and contact details." />
+  <link rel="canonical" href="https://robvasf.github.io/star-rock-puzzle/terms.html" />
+  <link rel="icon" type="image/png" href="Assets/StarRockPuzzle/Sprites/Android/star_rock_round.png" />
+  <style>
+    :root {
+      --bg-deep: #28242E;
+      --bg-indigo: #383552;
+      --bg-plum: #533B43;
+      --border-plum: #58485E;
+      --slate-blue: #344B68;
+      --parchment: #F0DBB8;
+      --cream: #FFFBDE;
+      --stone: #DBD6CA;
+      --gold: #DEB272;
+      --gold-light: #E3C88F;
+      --gold-bright: #EDE295;
+      --copper: #CB9368;
+      --brown: #754E4E;
+      --coral: #BD516D;
+      --mint: #B9EADA;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, sans-serif;
+      background-color: var(--bg-deep);
+      background-image:
+        radial-gradient(circle at 15% 10%, rgba(88, 72, 94, 0.35) 0%, transparent 45%),
+        radial-gradient(circle at 85% 90%, rgba(52, 75, 104, 0.35) 0%, transparent 45%);
+      color: var(--cream);
+      line-height: 1.65;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pixel {
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+
+    header.site-header {
+      background-color: var(--bg-indigo);
+      border-bottom: 4px solid var(--bg-deep);
+      box-shadow: 0 4px 0 var(--border-plum);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: var(--gold-bright);
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+    }
+
+    .brand img {
+      width: 34px;
+      height: 34px;
+      border: 2px solid var(--bg-deep);
+      border-radius: 6px;
+      background: var(--bg-deep);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    nav.site-nav {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    nav.site-nav a {
+      text-decoration: none;
+      color: var(--parchment);
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 0.42rem 0.8rem;
+      border-radius: 6px;
+      border: 2px solid transparent;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    nav.site-nav a:hover {
+      background-color: var(--border-plum);
+      color: var(--cream);
+    }
+
+    nav.site-nav a.active {
+      background-color: var(--gold);
+      color: var(--bg-deep);
+      border-color: var(--bg-deep);
+      box-shadow: 0 2px 0 var(--brown);
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      background-color: var(--bg-deep);
+      border: 2px solid var(--border-plum);
+      border-radius: 7px;
+      padding: 2px;
+      gap: 2px;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--stone);
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.28rem 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .lang-btn:hover {
+      color: var(--cream);
+      background-color: var(--border-plum);
+    }
+
+    .lang-btn[aria-pressed="true"] {
+      background-color: var(--mint);
+      color: var(--bg-deep);
+    }
+
+    main {
+      max-width: 860px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+      flex: 1;
+    }
+
+    .page-banner {
+      background: linear-gradient(180deg, var(--bg-indigo) 0%, var(--slate-blue) 100%);
+      border: 4px solid var(--gold);
+      border-radius: 14px;
+      padding: 1.65rem 1.5rem;
+      margin-bottom: 1.75rem;
+      box-shadow: 0 6px 0 var(--bg-deep), inset 0 0 0 3px var(--bg-deep);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .page-banner img {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+    }
+
+    .page-banner h1 {
+      font-size: 1.65rem;
+      color: var(--gold-bright);
+      line-height: 1.2;
+    }
+
+    .page-banner p {
+      color: var(--parchment);
+      font-size: 0.94rem;
+      margin-top: 0.25rem;
+    }
+
+    .doc-panel {
+      background-color: var(--parchment);
+      color: var(--bg-deep);
+      border: 4px solid var(--bg-deep);
+      border-radius: 12px;
+      padding: 1.85rem 1.75rem;
+      box-shadow: 0 6px 0 var(--bg-plum), inset 0 0 0 3px var(--copper);
+    }
+
+    .doc-panel section + section {
+      margin-top: 1.6rem;
+      padding-top: 1.35rem;
+      border-top: 2px solid var(--copper);
+    }
+
+    .doc-panel h2 {
+      font-size: 1.18rem;
+      color: var(--bg-plum);
+      margin-bottom: 0.55rem;
+    }
+
+    .doc-panel p,
+    .doc-panel li {
+      color: var(--bg-deep);
+      font-size: 0.97rem;
+    }
+
+    .doc-panel ul {
+      margin-top: 0.5rem;
+      padding-left: 1.3rem;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .contact-box {
+      margin-top: 0.85rem;
+      background-color: var(--cream);
+      border: 3px solid var(--bg-deep);
+      border-radius: 8px;
+      padding: 0.95rem 1.1rem;
+      box-shadow: 0 3px 0 var(--copper);
+    }
+
+    .contact-box a {
+      color: var(--coral);
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    footer.site-footer {
+      background-color: var(--bg-indigo);
+      border-top: 4px solid var(--bg-deep);
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      color: var(--stone);
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.65rem;
+    }
+
+    .footer-links a {
+      color: var(--gold-light);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+      color: var(--cream);
+    }
+
+    @media (max-width: 600px) {
+      .doc-panel {
+        padding: 1.25rem 1.1rem;
+      }
+      .page-banner h1 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html">
+        <img class="pixel" src="Assets/StarRockPuzzle/Resources/Sprites/spr_entity_rock_star.png" alt="Star Rock" />
+        <span>Star Rock Puzzle</span>
+      </a>
+      <div class="nav-right">
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="index.html" data-i18n="nav_home">Home</a>
+          <a href="privacy.html" data-i18n="nav_privacy">Privacy</a>
+          <a class="active" href="terms.html" data-i18n="nav_terms">Terms</a>
+        </nav>
+        <div class="lang-switch" role="group" aria-label="Language selector">
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+          <button type="button" class="lang-btn" data-lang="it" aria-pressed="false">IT</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-banner">
+      <img class="pixel" src="Assets/StarRockPuzzle/Resources/Sprites/spr_tile_socket_star.png" alt="Star socket" />
+      <div>
+        <h1 data-i18n="banner_title">Terms of Service</h1>
+        <p data-i18n="banner_date">Star Rock Puzzle &middot; Last updated: November 25, 2026</p>
+      </div>
+    </div>
+
+    <article class="doc-panel">
+      <section>
+        <h2 data-i18n="s1_title">1. Acceptance of Terms</h2>
+        <p data-i18n-html="s1_p1">
+          By downloading, accessing, or playing <strong>Star Rock Puzzle</strong>, you agree to these Terms of Service and our
+          <a href="privacy.html" style="color: var(--coral); font-weight: 700;">Privacy Policy</a>.
+          If you do not agree with any part of these terms, please do not use the application or its online services.
+        </p>
+      </section>
+
+      <section>
+        <h2 data-i18n="s2_title">2. Acceptable Use</h2>
+        <p data-i18n="s2_p1">
+          You are granted a personal, limited, non-exclusive, and non-commercial license to play Star Rock Puzzle. By using the game, you agree to:
+        </p>
+        <ul>
+          <li data-i18n="s2_li1">Use the game and Google Play Games features lawfully and respectfully.</li>
+          <li data-i18n="s2_li2">Not alter, decompile, tamper with saved games, or use automated tools or cheats to falsify leaderboard scores or achievements.</li>
+          <li data-i18n="s2_li3">Not interfere with the normal operation of connected services or redistribute the game's content or artwork without permission.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-i18n="s3_title">3. Progress, Virtual Items &amp; Google Services</h2>
+        <p data-i18n-html="s3_p1">
+          Gold, Altar offerings, cosmetics, and achievements are virtual in-game items with no real-world monetary value.
+          Google Sign-In and cloud synchronization rely on <strong>Google Play Games Services</strong> availability and are also subject to Google's applicable terms.
+        </p>
+      </section>
+
+      <section>
+        <h2 data-i18n="s4_title">4. Limitation of Liability</h2>
+        <p data-i18n="s4_p1">
+          Star Rock Puzzle is provided "as is" and "as available." While we strive to deliver a stable and polished experience:
+        </p>
+        <ul>
+          <li data-i18n="s4_li1">We do not guarantee uninterrupted service or freedom from technical issues outside our control (including network or third-party service outages).</li>
+          <li data-i18n="s4_li2">We are not liable for loss of local progress caused by uninstalling the app, clearing device data, or hardware failure when cloud save is not enabled.</li>
+          <li data-i18n="s4_li3">To the maximum extent permitted by applicable law, the developer's liability is limited for any indirect or consequential damages arising from use of the game.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-i18n="s5_title">5. Changes</h2>
+        <p data-i18n="s5_p1">
+          We may update the game, balance levels, or revise these Terms of Service when necessary.
+          The current version will always be published on this page with its revision date.
+        </p>
+      </section>
+
+      <section>
+        <h2 data-i18n="s6_title">6. Contact</h2>
+        <p data-i18n="s6_p1">
+          If you have questions about these Terms of Service or need technical support, please contact us at:
+        </p>
+        <div class="contact-box">
+          <strong data-i18n="contact_label">Support &amp; Contact Email:</strong>
+          <a href="mailto:star-rock-puzzle@googlegroups.com">star-rock-puzzle@googlegroups.com</a>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
+      <a href="terms.html" data-i18n="footer_terms">Terms of Service</a>
+      <a href="mailto:star-rock-puzzle@googlegroups.com">star-rock-puzzle@googlegroups.com</a>
+    </div>
+    <p data-i18n="copyright">&copy; 2026 Star Rock Puzzle. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function () {
+      var T = {
+        en: {
+          page_title: "Terms of Service — Star Rock Puzzle",
+          nav_home: "Home",
+          nav_privacy: "Privacy",
+          nav_terms: "Terms",
+          banner_title: "Terms of Service",
+          banner_date: "Star Rock Puzzle \u00b7 Last updated: November 25, 2026",
+          s1_title: "1. Acceptance of Terms",
+          s1_p1: 'By downloading, accessing, or playing <strong>Star Rock Puzzle</strong>, you agree to these Terms of Service and our <a href="privacy.html" style="color: var(--coral); font-weight: 700;">Privacy Policy</a>. If you do not agree with any part of these terms, please do not use the application or its online services.',
+          s2_title: "2. Acceptable Use",
+          s2_p1: "You are granted a personal, limited, non-exclusive, and non-commercial license to play Star Rock Puzzle. By using the game, you agree to:",
+          s2_li1: "Use the game and Google Play Games features lawfully and respectfully.",
+          s2_li2: "Not alter, decompile, tamper with saved games, or use automated tools or cheats to falsify leaderboard scores or achievements.",
+          s2_li3: "Not interfere with the normal operation of connected services or redistribute the game's content or artwork without permission.",
+          s3_title: "3. Progress, Virtual Items & Google Services",
+          s3_p1: "Gold, Altar offerings, cosmetics, and achievements are virtual in-game items with no real-world monetary value. Google Sign-In and cloud synchronization rely on <strong>Google Play Games Services</strong> availability and are also subject to Google's applicable terms.",
+          s4_title: "4. Limitation of Liability",
+          s4_p1: 'Star Rock Puzzle is provided "as is" and "as available." While we strive to deliver a stable and polished experience:',
+          s4_li1: "We do not guarantee uninterrupted service or freedom from technical issues outside our control (including network or third-party service outages).",
+          s4_li2: "We are not liable for loss of local progress caused by uninstalling the app, clearing device data, or hardware failure when cloud save is not enabled.",
+          s4_li3: "To the maximum extent permitted by applicable law, the developer's liability is limited for any indirect or consequential damages arising from use of the game.",
+          s5_title: "5. Changes",
+          s5_p1: "We may update the game, balance levels, or revise these Terms of Service when necessary. The current version will always be published on this page with its revision date.",
+          s6_title: "6. Contact",
+          s6_p1: "If you have questions about these Terms of Service or need technical support, please contact us at:",
+          contact_label: "Support & Contact Email:",
+          footer_privacy: "Privacy Policy",
+          footer_terms: "Terms of Service",
+          copyright: "\u00a9 2026 Star Rock Puzzle. All rights reserved."
+        },
+        es: {
+          page_title: "Condiciones del Servicio — Star Rock Puzzle",
+          nav_home: "Inicio",
+          nav_privacy: "Privacidad",
+          nav_terms: "Condiciones",
+          banner_title: "Condiciones del Servicio",
+          banner_date: "Star Rock Puzzle \u00b7 Última actualización: 25 de noviembre de 2026",
+          s1_title: "1. Aceptación de las condiciones",
+          s1_p1: 'Al descargar, acceder o jugar a <strong>Star Rock Puzzle</strong>, aceptas estas Condiciones del Servicio y nuestra <a href="privacy.html" style="color: var(--coral); font-weight: 700;">Política de Privacidad</a>. Si no estás de acuerdo con alguna de ellas, te pedimos que no utilices la aplicación ni sus servicios en línea.',
+          s2_title: "2. Uso aceptable",
+          s2_p1: "Se te concede una licencia personal, limitada, no exclusiva y no comercial para disfrutar de Star Rock Puzzle. Al utilizar el juego, te comprometes a:",
+          s2_li1: "Utilizar el juego y las funciones de Google Play Games de forma lícita y respetuosa.",
+          s2_li2: "No alterar, descompilar, manipular partidas guardadas ni utilizar herramientas automatizadas o trampas para falsear puntuaciones o logros en los marcadores.",
+          s2_li3: "No interferir con el funcionamiento normal de los servicios conectados ni redistribuir el contenido o el arte del juego sin autorización.",
+          s3_title: "3. Progreso, elementos virtuales y servicios de Google",
+          s3_p1: "El oro, las ofrendas del altar, los cosméticos y los logros son elementos virtuales exclusivos del juego y carecen de valor monetario real. El inicio de sesión con Google y la sincronización en la nube dependen de la disponibilidad de <strong>Google Play Games Services</strong> y están sujetos también a las condiciones aplicables de Google.",
+          s4_title: "4. Limitación de responsabilidad",
+          s4_p1: "Star Rock Puzzle se ofrece «tal cual» y «según disponibilidad». Aunque trabajamos para ofrecer una experiencia estable y cuidada:",
+          s4_li1: "No garantizamos que el servicio esté libre de interrupciones temporales o fallos técnicos ajenos a nuestro control (incluidas caídas de red o de servicios de terceros).",
+          s4_li2: "No nos hacemos responsables de la pérdida de progreso local ocasionada por desinstalación del juego, borrado de datos del dispositivo o fallos del hardware si no se ha activado el guardado en la nube.",
+          s4_li3: "En la máxima medida permitida por la ley aplicable, la responsabilidad del desarrollador queda limitada por cualquier daño indirecto o consecuente derivado del uso del juego.",
+          s5_title: "5. Modificaciones",
+          s5_p1: "Podemos actualizar el juego, equilibrar niveles o modificar estas Condiciones del Servicio cuando sea necesario. La versión vigente estará siempre publicada en esta página con su fecha de actualización.",
+          s6_title: "6. Contacto",
+          s6_p1: "Si tienes preguntas sobre estas Condiciones del Servicio o necesitas asistencia técnica, escríbenos a:",
+          contact_label: "Correo de contacto y soporte:",
+          footer_privacy: "Política de Privacidad",
+          footer_terms: "Condiciones del Servicio",
+          copyright: "\u00a9 2026 Star Rock Puzzle. Todos los derechos reservados."
+        },
+        it: {
+          page_title: "Termini di Servizio — Star Rock Puzzle",
+          nav_home: "Home",
+          nav_privacy: "Privacy",
+          nav_terms: "Termini",
+          banner_title: "Termini di Servizio",
+          banner_date: "Star Rock Puzzle \u00b7 Ultimo aggiornamento: 25 novembre 2026",
+          s1_title: "1. Accettazione dei termini",
+          s1_p1: 'Scaricando, accedendo o giocando a <strong>Star Rock Puzzle</strong>, accetti i presenti Termini di Servizio e la nostra <a href="privacy.html" style="color: var(--coral); font-weight: 700;">Informativa sulla Privacy</a>. Se non accetti una qualsiasi parte di questi termini, ti preghiamo di non utilizzare l\'applicazione né i suoi servizi online.',
+          s2_title: "2. Uso accettabile",
+          s2_p1: "Ti viene concessa una licenza personale, limitata, non esclusiva e non commerciale per giocare a Star Rock Puzzle. Utilizzando il gioco, accetti di:",
+          s2_li1: "Utilizzare il gioco e le funzionalità di Google Play Games in modo lecito e rispettoso.",
+          s2_li2: "Non alterare, decompilare, manomettere i salvataggi né usare strumenti automatizzati o trucchi per falsificare punteggi o obiettivi nelle classifiche.",
+          s2_li3: "Non interferire con il normale funzionamento dei servizi collegati né ridistribuire i contenuti o la grafica del gioco senza autorizzazione.",
+          s3_title: "3. Progressi, oggetti virtuali e servizi Google",
+          s3_p1: "Oro, offerte dell'Altare, oggetti estetici e obiettivi sono elementi virtuali esclusivi del gioco e privi di valore monetario reale. L'accesso con Google e la sincronizzazione cloud dipendono dalla disponibilità di <strong>Google Play Games Services</strong> e sono soggetti anche ai relativi termini di Google.",
+          s4_title: "4. Limitazione di responsabilità",
+          s4_p1: "Star Rock Puzzle è fornito «così com'è» e «secondo disponibilità». Pur impegnandoci a offrire un'esperienza stabile e curata:",
+          s4_li1: "Non garantiamo l'assenza di interruzioni temporanee o problemi tecnici al di fuori del nostro controllo (inclusi guasti di rete o di servizi di terze parti).",
+          s4_li2: "Non siamo responsabili per la perdita dei progressi locali causata da disinstallazione dell'app, cancellazione dei dati del dispositivo o guasti hardware se il salvataggio cloud non è attivo.",
+          s4_li3: "Nella misura massima consentita dalla legge applicabile, la responsabilità dello sviluppatore è limitata per qualsiasi danno indiretto o consequenziale derivante dall'uso del gioco.",
+          s5_title: "5. Modifiche",
+          s5_p1: "Possiamo aggiornare il gioco, bilanciare i livelli o modificare i presenti Termini di Servizio quando necessario. La versione vigente sarà sempre pubblicata su questa pagina con la relativa data di aggiornamento.",
+          s6_title: "6. Contatti",
+          s6_p1: "Per domande sui presenti Termini di Servizio o per assistenza tecnica, contattaci all'indirizzo:",
+          contact_label: "Email di contatto e supporto:",
+          footer_privacy: "Informativa sulla Privacy",
+          footer_terms: "Termini di Servizio",
+          copyright: "\u00a9 2026 Star Rock Puzzle. Tutti i diritti riservati."
+        }
+      };
+
+      function applyLang(lang) {
+        if (!T[lang]) lang = "en";
+        var dict = T[lang];
+        document.documentElement.lang = lang;
+        document.title = dict.page_title;
+        document.querySelectorAll("[data-i18n]").forEach(function (el) {
+          var k = el.getAttribute("data-i18n");
+          if (dict[k] !== undefined) el.textContent = dict[k];
+        });
+        document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+          var k = el.getAttribute("data-i18n-html");
+          if (dict[k] !== undefined) el.innerHTML = dict[k];
+        });
+        document.querySelectorAll(".lang-btn").forEach(function (btn) {
+          btn.setAttribute("aria-pressed", btn.getAttribute("data-lang") === lang ? "true" : "false");
+        });
+        try { localStorage.setItem("srp_lang", lang); } catch (e) {}
+      }
+
+      document.querySelectorAll(".lang-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          applyLang(btn.getAttribute("data-lang"));
+        });
+      });
+
+      var saved = "en";
+      try { saved = localStorage.getItem("srp_lang") || "en"; } catch (e) {}
+      var param = new URLSearchParams(window.location.search).get("lang");
+      if (param && T[param]) saved = param;
+      if (saved !== "en") applyLang(saved);
+    })();
+  </script>
+</body>
+</html>
