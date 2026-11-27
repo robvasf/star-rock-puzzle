@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Star Rock Puzzle — Ancient Temple Sliding Puzzle Game</title>
+  <title>Star Rock Puzzle — Sliding Puzzle Game</title>
   <meta name="description" content="Star Rock Puzzle is a sliding logic puzzle game set in ancient temples. Connect your Google Play Games account for cloud saves, achievements, and leaderboards." />
-  <link rel="canonical" href="https://robvasf.github.io/star-rock-puzzle/" />
-  <link rel="icon" type="image/png" href="Assets/StarRockPuzzle/Sprites/Android/star_rock_round.png" />
+  <link rel="canonical" href="https://starrockpuzzle.com/" />
+  <link rel="icon" type="image/png" href="Assets/StarRockPuzzle/Sprites/Android/star_rock_round_36.png?v=2" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Jersey+10&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg-deep: #28242E;
-      --bg-indigo: #383552;
-      --bg-plum: #533B43;
-      --border-plum: #58485E;
-      --slate-blue: #344B68;
+      --bg-surface: #322D3A;
+      --bg-elevated: #3D3746;
+      --border-subtle: #4D4756;
       --parchment: #F0DBB8;
       --cream: #FFFBDE;
       --stone: #DBD6CA;
@@ -25,6 +27,8 @@
       --coral: #BD516D;
       --mint: #B9EADA;
       --teal-dark: #406568;
+      --font-pixel: "Jersey 10", system-ui, sans-serif;
+      --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     }
 
     * {
@@ -33,17 +37,23 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, sans-serif;
+      font-family: var(--font-body);
       background-color: var(--bg-deep);
-      background-image:
-        radial-gradient(circle at 20% 15%, rgba(88, 72, 94, 0.35) 0%, transparent 45%),
-        radial-gradient(circle at 80% 85%, rgba(52, 75, 104, 0.35) 0%, transparent 45%);
+      background-image: url("itch-media/fondo-templo-repeat-y.png");
+      background-repeat: repeat-y;
+      background-position: center top;
       color: var(--cream);
-      line-height: 1.6;
+      font-size: 16.5px;
+      line-height: 1.7;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      -webkit-font-smoothing: antialiased;
     }
 
     .pixel {
@@ -51,87 +61,126 @@
       image-rendering: crisp-edges;
     }
 
+    /* Modern Layered Pixel-Art Top Bar */
     header.site-header {
-      background-color: var(--bg-indigo);
-      border-bottom: 4px solid var(--bg-deep);
-      box-shadow: 0 4px 0 var(--border-plum);
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 40;
+      background: rgba(40, 36, 46, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      box-shadow: 0 4px 0 rgba(20, 17, 24, 0.45);
     }
 
     .nav-wrap {
-      max-width: 980px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 0.75rem 1.25rem;
+      padding: 0.5rem 1.25rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.85rem;
+      gap: 0.75rem;
       flex-wrap: wrap;
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 0.65rem;
+      gap: 0.5rem;
       text-decoration: none;
       color: var(--gold-bright);
-      font-weight: 800;
-      font-size: 1.05rem;
-      letter-spacing: 0.02em;
+      font-family: var(--font-pixel);
+      font-weight: 400;
+      font-size: 1.6rem;
+      letter-spacing: 0.03em;
+      line-height: 1;
+      text-shadow: 0 2px 0 rgba(20, 17, 24, 0.85);
+      transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .brand:hover {
+      transform: translateY(-1px);
     }
 
     .brand img {
-      width: 34px;
-      height: 34px;
-      border: 2px solid var(--bg-deep);
-      border-radius: 6px;
-      background: var(--bg-deep);
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-badge {
+      margin-left: 0.15rem;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-shadow: none;
+      color: var(--bg-deep);
+      background-color: var(--mint);
+      padding: 0.18rem 0.48rem;
+      border: 1px solid var(--teal-dark);
+      line-height: 1;
     }
 
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.65rem;
       flex-wrap: wrap;
     }
 
     nav.site-nav {
-      display: flex;
-      gap: 0.4rem;
-      flex-wrap: wrap;
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      padding: 3px;
+      gap: 2px;
     }
 
     nav.site-nav a {
       text-decoration: none;
-      color: var(--parchment);
-      font-weight: 600;
-      font-size: 0.92rem;
-      padding: 0.42rem 0.8rem;
-      border-radius: 6px;
-      border: 2px solid transparent;
-      transition: background-color 0.15s ease, color 0.15s ease;
+      color: var(--stone);
+      font-family: var(--font-pixel);
+      font-weight: 400;
+      font-size: 1.22rem;
+      letter-spacing: 0.03em;
+      line-height: 1.1;
+      padding: 0.28rem 0.72rem;
+      transition: color 0.15s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.15s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     nav.site-nav a:hover {
-      background-color: var(--border-plum);
       color: var(--cream);
+      background-color: var(--bg-elevated);
     }
 
     nav.site-nav a.active {
-      background-color: var(--gold);
+      color: var(--gold-bright);
+      background-color: var(--bg-elevated);
+      box-shadow: inset 0 -2px 0 var(--gold-light);
+    }
+
+    nav.site-nav a.nav-cta {
+      background-color: var(--gold-light);
       color: var(--bg-deep);
-      border-color: var(--bg-deep);
-      box-shadow: 0 2px 0 var(--brown);
+      margin-left: 2px;
+    }
+
+    nav.site-nav a.nav-cta:hover {
+      background-color: var(--gold-bright);
+      color: var(--bg-deep);
     }
 
     .lang-switch {
       display: inline-flex;
-      background-color: var(--bg-deep);
-      border: 2px solid var(--border-plum);
-      border-radius: 7px;
-      padding: 2px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      padding: 3px;
       gap: 2px;
     }
 
@@ -139,18 +188,18 @@
       background: transparent;
       border: none;
       color: var(--stone);
-      font-family: inherit;
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 0.28rem 0.5rem;
-      border-radius: 4px;
+      font-family: var(--font-pixel);
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      line-height: 1.1;
+      padding: 0.22rem 0.5rem;
       cursor: pointer;
-      transition: background-color 0.15s ease, color 0.15s ease;
+      transition: background-color 0.15s cubic-bezier(0.22, 1, 0.36, 1), color 0.15s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .lang-btn:hover {
       color: var(--cream);
-      background-color: var(--border-plum);
+      background-color: var(--bg-elevated);
     }
 
     .lang-btn[aria-pressed="true"] {
@@ -158,169 +207,303 @@
       color: var(--bg-deep);
     }
 
-    main {
-      max-width: 980px;
+    .lang-select-wrap {
+      display: none;
+    }
+
+    .lang-select {
+      background-color: var(--bg-surface);
+      color: var(--gold-bright);
+      border: 1px solid var(--border-subtle);
+      font-family: var(--font-pixel);
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      padding: 0.22rem 0.45rem;
+      cursor: pointer;
+    }
+
+    /* Centered 960px Itch-style Column */
+    main.page-column {
+      max-width: 960px;
       width: 100%;
       margin: 0 auto;
-      padding: 2rem 1.25rem 3rem;
+      background-color: transparent;
+      padding-bottom: 3rem;
       flex: 1;
     }
 
-    .hero {
-      background: linear-gradient(180deg, var(--bg-indigo) 0%, var(--slate-blue) 100%);
-      border: 4px solid var(--gold);
-      border-radius: 14px;
-      padding: 2.25rem 1.5rem;
-      text-align: center;
-      box-shadow: 0 8px 0 var(--bg-deep), inset 0 0 0 3px var(--bg-deep);
-      margin-bottom: 2rem;
+    /* Clean Full-Bleed Banner Hero */
+    .hero-banner {
+      width: 100%;
+      background-color: transparent;
     }
 
     .hero-logo {
-      max-width: 360px;
-      width: 86%;
-      height: auto;
-      margin: 0 auto 1.1rem;
       display: block;
-      filter: drop-shadow(0 6px 0 rgba(40, 36, 46, 0.85));
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-intro {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 1.25rem;
+      text-align: center;
     }
 
     .hero-subtitle {
-      font-size: 1.12rem;
-      color: var(--parchment);
-      max-width: 650px;
-      margin: 0 auto 1.4rem;
-    }
-
-    .sprite-strip {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1.1rem;
-      margin: 1.25rem 0 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .sprite-badge {
-      background-color: var(--bg-deep);
-      border: 3px solid var(--copper);
-      border-radius: 10px;
-      padding: 0.55rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 0 rgba(40, 36, 46, 0.7);
-    }
-
-    .sprite-badge img {
-      width: 44px;
-      height: 44px;
-      display: block;
+      font-size: 1.06rem;
+      color: var(--stone);
+      max-width: 660px;
+      margin: 0 auto 1.35rem;
     }
 
     .cta-group {
       display: flex;
       justify-content: center;
-      gap: 0.85rem;
+      gap: 0.75rem;
       flex-wrap: wrap;
     }
 
     .btn {
       display: inline-block;
       text-decoration: none;
-      font-weight: 700;
-      font-size: 0.96rem;
-      padding: 0.7rem 1.25rem;
-      border-radius: 8px;
-      border: 3px solid var(--bg-deep);
-      transition: transform 0.1s ease;
+      font-family: var(--font-pixel);
+      font-weight: 400;
+      font-size: 1.3rem;
+      letter-spacing: 0.03em;
+      line-height: 1.15;
+      padding: 0.55rem 1.25rem;
+      border: 2px solid var(--bg-deep);
+      transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1), filter 0.14s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.14s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .btn:hover {
+      filter: brightness(1.06);
+      transform: translateY(-2px);
+    }
+
+    .btn-gold:hover {
+      box-shadow: 0 5px 0 var(--brown);
+    }
+
+    .btn-mint:hover {
+      box-shadow: 0 5px 0 var(--teal-dark);
     }
 
     .btn:active {
       transform: translateY(2px);
+      box-shadow: 0 1px 0 var(--brown);
+    }
+
+    .btn-mint:active {
+      box-shadow: 0 1px 0 var(--teal-dark);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--gold-bright);
+      outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+      }
     }
 
     .btn-gold {
-      background-color: var(--gold);
+      background-color: var(--gold-light);
       color: var(--bg-deep);
-      box-shadow: 0 4px 0 var(--brown);
-    }
-
-    .btn-gold:hover {
-      background-color: var(--gold-bright);
+      box-shadow: 0 3px 0 var(--brown);
     }
 
     .btn-mint {
       background-color: var(--mint);
       color: var(--bg-deep);
-      box-shadow: 0 4px 0 var(--teal-dark);
+      box-shadow: 0 3px 0 var(--teal-dark);
     }
 
-    .btn-mint:hover {
-      background-color: var(--cream);
+    /* Top Screenshots Gallery Section */
+    .screenshots-section {
+      max-width: 820px;
+      margin: 0.5rem auto 1.5rem;
+      padding: 1.25rem 1.5rem 0.5rem;
+    }
+
+    .section-kicker {
+      font-family: var(--font-pixel);
+      font-size: 1.55rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      color: var(--gold-light);
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-kicker img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .gallery a {
+      display: block;
+      border: 2px solid var(--border-subtle);
+      background: var(--bg-surface);
+      transition: border-color 0.16s cubic-bezier(0.22, 1, 0.36, 1), transform 0.16s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.16s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .gallery a:hover {
+      border-color: var(--gold-light);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+    }
+
+    .gallery img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Main Content Column (matches itch.io readability) */
+    .content-shell {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0.5rem 1.5rem 0;
+    }
+
+    .showcase {
+      padding: 0.25rem 0;
+    }
+
+    .showcase h2 {
+      font-family: var(--font-pixel);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--gold-light);
+      font-size: clamp(1.75rem, 3.6vw, 2.25rem);
+      line-height: 1.12;
+      margin-bottom: 0.75rem;
+      scroll-margin-top: 5rem;
+    }
+
+    .showcase p {
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+
+    .showcase strong {
+      color: var(--gold-bright);
+      font-weight: 600;
+    }
+
+    .showcase a {
+      color: var(--gold-light);
+      text-decoration: underline;
+      text-underline-offset: 0.22em;
+    }
+
+    .showcase a:hover {
+      color: var(--mint);
+    }
+
+    .showcase ol {
+      padding-left: 1.4rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .showcase li {
+      padding-left: 0.25rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .showcase .gameplay-gif {
+      display: block;
+      width: 100%;
+      max-width: 560px;
+      height: auto;
+      margin: 1.25rem auto 0;
+      background: var(--bg-surface);
+    }
+
+    .star-divider {
+      display: block;
+      width: min(100%, 560px);
+      height: auto;
+      margin: 2rem auto;
+    }
+
+    /* Info Cards */
+    .info-section {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-subtle);
     }
 
     .grid-2 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.25rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .card {
-      background-color: var(--parchment);
-      color: var(--bg-deep);
-      border: 4px solid var(--bg-deep);
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 6px 0 var(--bg-plum), inset 0 0 0 3px var(--copper);
+      background-color: var(--bg-surface);
+      color: var(--cream);
+      border: 2px solid var(--border-subtle);
+      padding: 1.35rem;
     }
 
     .card-dark {
-      background-color: var(--bg-indigo);
+      background-color: var(--bg-surface);
       color: var(--cream);
-      border: 4px solid var(--bg-deep);
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 6px 0 var(--bg-deep), inset 0 0 0 3px var(--border-plum);
-      margin-bottom: 1.5rem;
+      border: 2px solid var(--border-subtle);
+      padding: 1.35rem;
     }
 
     .card-header {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.85rem;
+      gap: 0.7rem;
+      margin-bottom: 0.75rem;
     }
 
     .card-header img {
-      width: 34px;
-      height: 34px;
+      width: 28px;
+      height: 28px;
       flex-shrink: 0;
     }
 
-    h1, h2 {
-      line-height: 1.25;
-    }
-
-    .card h2 {
-      font-size: 1.25rem;
-      color: var(--bg-plum);
-    }
-
+    .card h2,
     .card-dark h2 {
-      font-size: 1.28rem;
-      color: var(--gold-bright);
+      font-family: var(--font-pixel);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      font-size: 1.65rem;
+      color: var(--gold-light);
+      line-height: 1.15;
     }
 
-    .card p, .card li {
-      color: var(--bg-plum);
-      font-size: 0.97rem;
-    }
-
+    .card p, .card li,
     .card-dark p, .card-dark li {
-      color: var(--parchment);
-      font-size: 0.97rem;
+      color: var(--stone);
+      font-size: 0.96rem;
+    }
+
+    .card strong, .card-dark strong {
+      color: var(--cream);
+      font-weight: 600;
     }
 
     ul.clean-list {
@@ -340,25 +523,25 @@
     .pill {
       background-color: var(--bg-deep);
       color: var(--mint);
-      border: 2px solid var(--teal-dark);
-      border-radius: 999px;
-      padding: 0.25rem 0.75rem;
-      font-size: 0.84rem;
-      font-weight: 600;
+      border: 1px solid var(--teal-dark);
+      font-family: var(--font-pixel);
+      padding: 0.25rem 0.7rem;
+      font-size: 0.86rem;
     }
 
     a.inline-link {
-      color: var(--coral);
-      font-weight: 700;
+      color: var(--gold-light);
+      font-weight: 600;
     }
 
-    .card-dark a.inline-link {
+    a.inline-link:hover {
       color: var(--mint);
     }
 
+    /* Footer */
     footer.site-footer {
-      background-color: var(--bg-indigo);
-      border-top: 4px solid var(--bg-deep);
+      background-color: var(--bg-deep);
+      border-top: 1px solid var(--border-subtle);
       padding: 1.5rem 1.25rem;
       text-align: center;
       color: var(--stone);
@@ -370,12 +553,12 @@
       justify-content: center;
       gap: 1.25rem;
       flex-wrap: wrap;
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.55rem;
     }
 
     .footer-links a {
       color: var(--gold-light);
-      font-weight: 600;
+      font-weight: 500;
       text-decoration: none;
     }
 
@@ -384,12 +567,57 @@
       color: var(--cream);
     }
 
-    @media (max-width: 600px) {
-      .hero {
-        padding: 1.6rem 1rem;
+    @media (max-width: 720px) {
+      .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
+        gap: 0.6rem;
       }
-      .card, .card-dark {
-        padding: 1.2rem;
+    }
+
+    @media (max-width: 640px) {
+      .nav-wrap {
+        padding: 0.5rem 0.9rem;
+        gap: 0.55rem;
+      }
+      .brand {
+        font-size: 1.35rem;
+      }
+      .brand img {
+        width: 21px;
+        height: 21px;
+      }
+      .lang-switch {
+        display: none;
+      }
+      .lang-select-wrap {
+        display: inline-flex;
+        align-items: center;
+      }
+      .nav-right {
+        width: 100%;
+      }
+      nav.site-nav {
+        width: 100%;
+        justify-content: space-between;
+      }
+      nav.site-nav a {
+        flex: 1;
+        padding: 0.28rem 0.35rem;
+        font-size: 1.08rem;
+        text-align: center;
+      }
+      .hero-intro,
+      .screenshots-section,
+      .content-shell {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+      .star-divider {
+        margin: 1.5rem auto;
       }
     }
   </style>
@@ -398,14 +626,23 @@
   <header class="site-header">
     <div class="nav-wrap">
       <a class="brand" href="index.html">
-        <img class="pixel" src="Assets/StarRockPuzzle/Resources/Sprites/spr_entity_rock_star.png" alt="Star Rock" />
+        <img class="pixel" src="Assets/StarRockPuzzle/Sprites/Android/star_rock_round_36.png?v=2" alt="Star Rock Puzzle" />
         <span>Star Rock Puzzle</span>
+        <span class="brand-badge">Beta</span>
       </a>
+      <div class="lang-select-wrap">
+        <select class="lang-select" aria-label="Language selector">
+          <option value="en">EN</option>
+          <option value="es">ES</option>
+          <option value="it">IT</option>
+        </select>
+      </div>
       <div class="nav-right">
         <nav class="site-nav" aria-label="Main navigation">
           <a class="active" href="index.html" data-i18n="nav_home">Home</a>
           <a href="privacy.html" data-i18n="nav_privacy">Privacy</a>
           <a href="terms.html" data-i18n="nav_terms">Terms</a>
+          <a class="nav-cta" href="#beta" data-i18n="nav_beta">Beta</a>
         </nav>
         <div class="lang-switch" role="group" aria-label="Language selector">
           <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
@@ -416,90 +653,171 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero">
+  <main class="page-column">
+    <section class="hero-banner">
       <img
         class="hero-logo pixel"
-        src="Assets/StarRockPuzzle/Resources/Sprites/spr_ui_logo.png"
-        alt="Star Rock Puzzle Logo"
+        src="itch-media/banner-logo.png"
+        width="960"
+        height="320"
+        alt="Star Rock Puzzle"
       />
-      <p class="hero-subtitle" data-i18n="hero_subtitle">
-        A sliding logic puzzle game set in ancient temples. Slide the Star Rock into its sacred socket by solving clever boards in as few moves as possible.
-      </p>
-
-      <div class="sprite-strip" aria-hidden="true">
-        <span class="sprite-badge">
-          <img class="pixel" src="Assets/StarRockPuzzle/Resources/Sprites/spr_entity_rock_star.png" alt="" />
-        </span>
-        <span class="sprite-badge">
-          <img class="pixel" src="Assets/StarRockPuzzle/Resources/Sprites/spr_tile_socket_star.png" alt="" />
-        </span>
-        <span class="sprite-badge">
-          <img class="pixel" src="Assets/StarRockPuzzle/Resources/Sprites/spr_prop_chest_open.png" alt="" />
-        </span>
-        <span class="sprite-badge">
-          <img class="pixel" src="Assets/StarRockPuzzle/Resources/Sprites/spr_ui_icon_trophy.png" alt="" />
-        </span>
-      </div>
-
-      <div class="cta-group">
-        <a class="btn btn-gold" href="privacy.html" data-i18n="cta_privacy">Privacy Policy</a>
-        <a class="btn btn-mint" href="terms.html" data-i18n="cta_terms">Terms of Service</a>
-      </div>
-    </section>
-
-    <section class="grid-2">
-      <article class="card">
-        <div class="card-header">
-          <img class="pixel" src="Assets/StarRockPuzzle/Resources/Sprites/spr_ui_icon_star.png" alt="" />
-          <h2 data-i18n="about_title">What is the game about?</h2>
-        </div>
-        <p data-i18n-html="about_intro">
-          In <strong>Star Rock Puzzle</strong>, each level is an enclosed sanctuary where rocks slide until they hit walls or other blocks.
+      <div class="hero-intro">
+        <p class="hero-subtitle" data-i18n="hero_subtitle">
+          Slide the Star Rock into its sacred socket by solving clever boards in as few moves as possible.
         </p>
-        <ul class="clean-list">
-          <li data-i18n-html="about_li1"><strong>200 campaign levels</strong> with progressive difficulty and secret worlds.</li>
-          <li data-i18n-html="about_li2"><strong>Endless Mode</strong> to test your puzzle-solving skills without limits.</li>
-          <li data-i18n-html="about_li3"><strong>Offering Altar &amp; Relics</strong> to unlock visual themes for rocks, sockets, and avatars.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <div class="card-header">
-          <img class="pixel" src="Assets/StarRockPuzzle/Resources/Sprites/spr_ui_icon_trophy.png" alt="" />
-          <h2 data-i18n="google_title">Google Sign-In</h2>
+        <div class="cta-group">
+          <a class="btn btn-gold" href="#beta" data-i18n="cta_beta">Join the Android beta</a>
+          <a class="btn btn-gold" href="privacy.html" data-i18n="cta_privacy">Privacy Policy</a>
+          <a class="btn btn-mint" href="terms.html" data-i18n="cta_terms">Terms of Service</a>
         </div>
-        <p data-i18n-html="google_intro">
-          The game optionally integrates <strong>Google Play Games Services</strong> so you never lose your progress when switching devices:
-        </p>
-        <ul class="clean-list">
-          <li data-i18n-html="google_li1"><strong>Cloud Save:</strong> syncs completed levels, gold, cosmetics, and achievements.</li>
-          <li data-i18n-html="google_li2"><strong>Achievements &amp; Leaderboards:</strong> records your milestones and Altar offering score.</li>
-          <li data-i18n-html="google_li3"><strong>Offline Play:</strong> if you prefer not to sign in, your progress is stored locally on your device.</li>
-        </ul>
-      </article>
+      </div>
     </section>
 
-    <section class="card-dark">
-      <div class="card-header">
-        <img class="pixel" src="Assets/StarRockPuzzle/Resources/Sprites/spr_ui_icon_altar.png" alt="" />
-        <h2 data-i18n="data_title">Transparency &amp; Data Handled</h2>
+    <section class="screenshots-section" aria-label="Gameplay screenshots">
+      <h2 class="section-kicker">
+        <img class="pixel" src="Assets/StarRockPuzzle/Resources/Sprites/spr_ui_icon_star.png" alt="" />
+        <span data-i18n="screenshots_title">Screenshots</span>
+      </h2>
+      <div class="gallery">
+        <a href="itch-media/screenshots/secret-fire.png" target="_blank" rel="noopener">
+          <img class="pixel" loading="lazy" src="itch-media/screenshots/secret-fire.png" alt="Fire wraps around a Secret World board" width="720" height="1507" />
+        </a>
+        <a href="itch-media/screenshots/secret-rain.png" target="_blank" rel="noopener">
+          <img class="pixel" loading="lazy" src="itch-media/screenshots/secret-rain.png" alt="Water flows around a Secret World board" width="720" height="1507" />
+        </a>
+        <a href="itch-media/screenshots/campaign.png" target="_blank" rel="noopener">
+          <img class="pixel" loading="lazy" src="itch-media/screenshots/campaign.png" alt="Campaign board in the Amethyst Crypt" width="720" height="1507" />
+        </a>
+        <a href="itch-media/screenshots/altar.png" target="_blank" rel="noopener">
+          <img class="pixel" loading="lazy" src="itch-media/screenshots/altar.png" alt="The Offering Altar as an offering rises from it" width="720" height="1507" />
+        </a>
+        <a href="itch-media/screenshots/victory.png" target="_blank" rel="noopener">
+          <img class="pixel" loading="lazy" src="itch-media/screenshots/victory.png" alt="Gold-star victory screen after the tutorial puzzle" width="720" height="1507" />
+        </a>
       </div>
-      <p data-i18n="data_intro">
-        We respect your privacy and follow data minimization principles. When you sign in with Google, Star Rock Puzzle only accesses the Google Play Games services needed for:
-      </p>
-      <div class="pill-row">
-        <span class="pill" data-i18n="pill_1">Public player display name</span>
-        <span class="pill" data-i18n="pill_2">Game progress (Cloud Save)</span>
-        <span class="pill" data-i18n="pill_3">Achievements &amp; leaderboards</span>
-      </div>
-      <p style="margin-top: 1rem;" data-i18n-html="data_footer">
-        We do not sell personal data or show intrusive ads. Read full details in our
-        <a class="inline-link" href="privacy.html">Privacy Policy</a> and
-        <a class="inline-link" href="terms.html">Terms of Service</a>, or contact us at
-        <a class="inline-link" href="mailto:star-rock-puzzle@googlegroups.com">star-rock-puzzle@googlegroups.com</a>.
-      </p>
     </section>
+
+    <div class="content-shell">
+      <img class="star-divider pixel" src="itch-media/star-divider.png" alt="" width="560" height="32" loading="lazy">
+
+      <section class="showcase">
+        <h2 data-i18n-html="story_0">A swipe, a plan, a perfect solve</h2>
+        <p data-i18n-html="story_1"><strong>Star Rock Puzzle</strong> is a portrait sliding puzzle set in pixel-art temples. Swipe a stone and it travels until a wall or another stone stops it. Line up the Star Rocks with their sockets, use neutral stones to set up your next move, and open the temple chest when the board is solved.</p>
+        <p><img class="gameplay-gif pixel" loading="lazy" decoding="async" src="itch-media/01-slide-and-solve.gif" alt="A two-move solution in the tutorial, followed by the chest opening and the gold-star victory screen" width="560" height="344" title="A two-move solution in the tutorial, followed by the chest opening and the gold-star victory screen"></p>
+      </section>
+
+      <img class="star-divider pixel" src="itch-media/star-divider.png" alt="" width="560" height="32" loading="lazy">
+
+      <section class="showcase">
+        <h2 data-i18n-html="story_2">200 puzzles across eight temples</h2>
+        <p data-i18n-html="story_3">Start with guided lessons, then work through eight themed stretches of the campaign, from the Ancient Temple and Mossy Garden to the Volcanic Caldera and Stellar Crown. Early boards teach you to use walls as stopping points. Later boards ask you to coordinate several Star Rocks and neutral stones.</p>
+        <p data-i18n-html="story_4">Replay completed levels from the level selector, beat your best move counts, and earn gold stars by finding optimal routes.</p>
+        <p><img class="gameplay-gif pixel" loading="lazy" decoding="async" src="itch-media/02-temple-campaign.gif" alt="Three boards from the base campaign, showing changing layouts, pieces, and pixel-art temple frames" width="560" height="344"></p>
+      </section>
+
+      <img class="star-divider pixel" src="itch-media/star-divider.png" alt="" width="560" height="32" loading="lazy">
+
+      <section class="showcase">
+        <h2 data-i18n-html="story_5">Four Secret Worlds with living walls</h2>
+        <p data-i18n-html="story_6">Finish the campaign to uncover four more worlds, each with <strong>200 puzzles</strong>. Rain courses along the stone, ice ripples over frozen walls, flames crawl around the corridors, and fog rolls through the masonry. Close-ups in the clip show the same wall effects playing in-game.</p>
+        <p><img class="gameplay-gif pixel" loading="lazy" decoding="async" src="itch-media/03-secret-worlds-living-walls.gif" alt="Live boards and magnified wall footage showing flowing rainwater, ice, fire, and fog" width="560" height="344"></p>
+      </section>
+
+      <img class="star-divider pixel" src="itch-media/star-divider.png" alt="" width="560" height="32" loading="lazy">
+
+      <section class="showcase">
+        <h2 data-i18n-html="story_7">Endless Mode</h2>
+        <p data-i18n-html="story_8">Clear all four Secret Worlds to unlock a run that keeps counting upward. A pool of <strong>2,000 boards</strong> feeds the mode, and its wall effects, temple backdrops, and HUD borders change as you advance. See how far you can climb on the Endless leaderboard when Google Play Games is available.</p>
+        <p><img class="gameplay-gif pixel" loading="lazy" decoding="async" src="itch-media/04-endless-mode.gif" alt="Two Endless Mode boards showing different elemental wall effects and temple frames" width="560" height="344"></p>
+      </section>
+
+      <img class="star-divider pixel" src="itch-media/star-divider.png" alt="" width="560" height="32" loading="lazy">
+
+      <section class="showcase">
+        <h2 data-i18n-html="story_9">Treasure, cosmetics, and the Offering Altar</h2>
+        <p data-i18n-html="story_10">Earn gold from temple chests and spend it in the Star Shop to customize your avatar, Star Rocks, sockets, and neutral stones. After the campaign, make offerings at the altar to rise through its ranks and build your Offering score. <strong>27 achievements</strong> track milestones from your first clear to the deepest challenges.</p>
+        <p><img class="gameplay-gif pixel" loading="lazy" decoding="async" src="itch-media/05-treasure-and-achievements.gif" alt="The Star Shop, an animated gold offering at the altar, and the in-game achievement list" width="560" height="344"></p>
+      </section>
+
+      <img class="star-divider pixel" src="itch-media/star-divider.png" alt="" width="560" height="32" loading="lazy">
+
+      <section class="showcase">
+        <h2 data-i18n-html="story_11">Play at your own pace</h2>
+        <p data-i18n-html="story_12">Play in portrait with one-swipe controls, restart a board to try another route, and adjust sound effects, music, ambience, and vibration independently. The soundtrack features <strong>14 original 16-bit themes</strong>. Play offline with local saves. With optional Google Play Games sign-in on a compatible Android installation, you can sync progress and use achievements and the Offering and Endless leaderboards.</p>
+        <p data-i18n-html="story_13"><strong>Languages</strong> · English, Spanish, Italian, and Portuguese.</p>
+        <p><img class="gameplay-gif pixel" loading="lazy" decoding="async" src="itch-media/06-play-your-way.gif" alt="Main menu and options panels showing the game’s sound, vibration, and language controls" width="560" height="344"></p>
+      </section>
+
+      <img class="star-divider pixel" src="itch-media/star-divider.png" alt="" width="560" height="32" loading="lazy">
+
+      <section class="showcase">
+        <h2 id="beta" data-i18n-html="story_14">Join the Android closed beta</h2>
+        <p data-i18n-html="story_15">Play Star Rock Puzzle early and help fine-tune the puzzles. Use the same Google account for all three steps.</p>
+        <ol>
+          <li data-i18n-html="story_16"><a href="https://groups.google.com/g/star-rock-puzzle">Join the Star Rock Puzzle testers group</a>.</li>
+          <li data-i18n-html="story_17"><a href="https://play.google.com/apps/testing/com.starrockpuzzle.game">Accept the beta invitation on Google Play</a>.</li>
+          <li data-i18n-html="story_18"><a href="https://play.google.com/store/apps/details?id=com.starrockpuzzle.game">Open Google Play on your Android device and install Star Rock Puzzle</a>.</li>
+        </ol>
+        <p data-i18n-html="story_19">Tell me which puzzles felt satisfying to solve and where you got stuck. You can send private feedback through Google Play.</p>
+        <p><img alt="Join the Star Rock Puzzle Android closed beta" class="gameplay-gif pixel" loading="lazy" decoding="async" src="itch-media/07-closed-beta.gif" width="560" height="128"></p>
+      </section>
+
+      <section class="info-section">
+        <div class="grid-2">
+          <article class="card">
+            <div class="card-header">
+              <img class="pixel" src="Assets/StarRockPuzzle/Resources/Sprites/spr_ui_icon_star.png" alt="" />
+              <h2 data-i18n="about_title">What is the game about?</h2>
+            </div>
+            <p data-i18n-html="about_intro">
+              In <strong>Star Rock Puzzle</strong>, each level is an enclosed sanctuary where rocks slide until they hit walls or other blocks.
+            </p>
+            <ul class="clean-list">
+              <li data-i18n-html="about_li1"><strong>200 campaign levels</strong> with progressive difficulty and secret worlds.</li>
+              <li data-i18n-html="about_li2"><strong>Endless Mode</strong> to test your puzzle-solving skills without limits.</li>
+              <li data-i18n-html="about_li3"><strong>Offering Altar &amp; Relics</strong> to unlock visual themes for rocks, sockets, and avatars.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <img class="pixel" src="Assets/StarRockPuzzle/Resources/Sprites/spr_ui_icon_trophy.png" alt="" />
+              <h2 data-i18n="google_title">Google Sign-In</h2>
+            </div>
+            <p data-i18n-html="google_intro">
+              The game optionally integrates <strong>Google Play Games Services</strong> so you never lose your progress when switching devices:
+            </p>
+            <ul class="clean-list">
+              <li data-i18n-html="google_li1"><strong>Cloud Save:</strong> syncs completed levels, gold, cosmetics, and achievements.</li>
+              <li data-i18n-html="google_li2"><strong>Achievements &amp; Leaderboards:</strong> records your milestones and Altar offering score.</li>
+              <li data-i18n-html="google_li3"><strong>Offline Play:</strong> if you prefer not to sign in, your progress is stored locally on your device.</li>
+            </ul>
+          </article>
+        </div>
+
+        <section class="card-dark">
+          <div class="card-header">
+            <img class="pixel" src="Assets/StarRockPuzzle/Resources/Sprites/spr_ui_icon_altar.png" alt="" />
+            <h2 data-i18n="data_title">Transparency &amp; Data Handled</h2>
+          </div>
+          <p data-i18n="data_intro">
+            We respect your privacy and follow data minimization principles. When you sign in with Google, Star Rock Puzzle only accesses the Google Play Games services needed for:
+          </p>
+          <div class="pill-row">
+            <span class="pill" data-i18n="pill_1">Public player display name</span>
+            <span class="pill" data-i18n="pill_2">Game progress (Cloud Save)</span>
+            <span class="pill" data-i18n="pill_3">Achievements &amp; leaderboards</span>
+          </div>
+          <p style="margin-top: 1rem;" data-i18n-html="data_footer">
+            We do not sell personal data or show intrusive ads. Read full details in our
+            <a class="inline-link" href="privacy.html">Privacy Policy</a> and
+            <a class="inline-link" href="terms.html">Terms of Service</a>, or contact us at
+            <a class="inline-link" href="mailto:star-rock-puzzle@googlegroups.com">star-rock-puzzle@googlegroups.com</a>.
+          </p>
+        </section>
+      </section>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -518,8 +836,10 @@
         en: {
           page_title: "Star Rock Puzzle — Ancient Temple Sliding Puzzle Game",
           nav_home: "Home",
+          nav_beta: "Beta",
           nav_privacy: "Privacy",
           nav_terms: "Terms",
+          screenshots_title: "Screenshots",
           hero_subtitle: "A sliding logic puzzle game set in ancient temples. Slide the Star Rock into its sacred socket by solving clever boards in as few moves as possible.",
           cta_privacy: "Privacy Policy",
           cta_terms: "Terms of Service",
@@ -544,8 +864,10 @@
         es: {
           page_title: "Star Rock Puzzle — Juego de Puzles y Templos Antiguos",
           nav_home: "Inicio",
+          nav_beta: "Beta",
           nav_privacy: "Privacidad",
           nav_terms: "Condiciones",
+          screenshots_title: "Capturas",
           hero_subtitle: "Un puzle de lógica y deslizamiento ambientado en templos ancestrales. Desliza la Roca Estrella hasta su pedestal sagrado resolviendo tableros ingeniosos con el menor número de movimientos.",
           cta_privacy: "Política de Privacidad",
           cta_terms: "Condiciones del Servicio",
@@ -570,8 +892,10 @@
         it: {
           page_title: "Star Rock Puzzle — Rompicapo a Scorrimento nei Templi Antichi",
           nav_home: "Home",
+          nav_beta: "Beta",
           nav_privacy: "Privacy",
           nav_terms: "Termini",
+          screenshots_title: "Screenshot",
           hero_subtitle: "Un rompicapo di logica e scorrimento ambientato in antichi templi. Fai scivolare la Roccia Stella fino al suo piedistallo sacro risolvendo schemi ingegnosi nel minor numero di mosse.",
           cta_privacy: "Informativa sulla Privacy",
           cta_terms: "Termini di Servizio",
@@ -595,6 +919,82 @@
         }
       };
 
+      var showcaseTranslations = {
+        en: {
+          story_0: "A swipe, a plan, a perfect solve",
+          story_1: "<strong>Star Rock Puzzle</strong> is a portrait sliding puzzle set in pixel-art temples. Swipe a stone and it travels until a wall or another stone stops it. Line up the Star Rocks with their sockets, use neutral stones to set up your next move, and open the temple chest when the board is solved.",
+          story_2: "200 puzzles across eight temples",
+          story_3: "Start with guided lessons, then work through eight themed stretches of the campaign, from the Ancient Temple and Mossy Garden to the Volcanic Caldera and Stellar Crown. Early boards teach you to use walls as stopping points. Later boards ask you to coordinate several Star Rocks and neutral stones.",
+          story_4: "Replay completed levels from the level selector, beat your best move counts, and earn gold stars by finding optimal routes.",
+          story_5: "Four Secret Worlds with living walls",
+          story_6: "Finish the campaign to uncover four more worlds, each with <strong>200 puzzles</strong>. Rain courses along the stone, ice ripples over frozen walls, flames crawl around the corridors, and fog rolls through the masonry. Close-ups in the clip show the same wall effects playing in-game.",
+          story_7: "Endless Mode",
+          story_8: "Clear all four Secret Worlds to unlock a run that keeps counting upward. A pool of <strong>2,000 boards</strong> feeds the mode, and its wall effects, temple backdrops, and HUD borders change as you advance. See how far you can climb on the Endless leaderboard when Google Play Games is available.",
+          story_9: "Treasure, cosmetics, and the Offering Altar",
+          story_10: "Earn gold from temple chests and spend it in the Star Shop to customize your avatar, Star Rocks, sockets, and neutral stones. After the campaign, make offerings at the altar to rise through its ranks and build your Offering score. <strong>27 achievements</strong> track milestones from your first clear to the deepest challenges.",
+          story_11: "Play at your own pace",
+          story_12: "Play in portrait with one-swipe controls, restart a board to try another route, and adjust sound effects, music, ambience, and vibration independently. The soundtrack features <strong>14 original 16-bit themes</strong>. Play offline with local saves. With optional Google Play Games sign-in on a compatible Android installation, you can sync progress and use achievements and the Offering and Endless leaderboards.",
+          story_13: "<strong>Languages</strong> · English, Spanish, Italian, and Portuguese.",
+          story_14: "Join the Android closed beta",
+          story_15: "Play Star Rock Puzzle early and help fine-tune the puzzles. Use the same Google account for all three steps.",
+          story_16: "<a href=\"https://groups.google.com/g/star-rock-puzzle\">Join the Star Rock Puzzle testers group</a>.",
+          story_17: "<a href=\"https://play.google.com/apps/testing/com.starrockpuzzle.game\">Accept the beta invitation on Google Play</a>.",
+          story_18: "<a href=\"https://play.google.com/store/apps/details?id=com.starrockpuzzle.game\">Open Google Play on your Android device and install Star Rock Puzzle</a>.",
+          story_19: "Tell me which puzzles felt satisfying to solve and where you got stuck. You can send private feedback through Google Play.",
+          cta_beta: "Join the Android beta"
+        },
+        es: {
+          story_0: "Un deslizamiento, un plan, una solución perfecta",
+          story_1: "<strong>Star Rock Puzzle</strong> es un puzle vertical de deslizamiento ambientado en templos de pixel art. Desliza una roca y seguirá moviéndose hasta chocar contra un muro u otra roca. Lleva las Rocas Estrella a sus pedestales, usa las rocas neutras para preparar el siguiente movimiento y abre el cofre del templo al resolver el tablero.",
+          story_2: "200 puzles en ocho templos",
+          story_3: "Empieza con lecciones guiadas y recorre ocho tramos temáticos de la campaña, desde el Templo Antiguo y el Jardín Musgoso hasta la Caldera Volcánica y la Corona Estelar. Los primeros tableros enseñan a usar los muros para detener las rocas. Más adelante tendrás que coordinar varias Rocas Estrella y rocas neutras.",
+          story_4: "Repite los niveles completados desde el selector, mejora tus marcas de movimientos y consigue estrellas doradas al encontrar rutas óptimas.",
+          story_5: "Cuatro Mundos Secretos con muros vivos",
+          story_6: "Completa la campaña para descubrir cuatro mundos más, cada uno con <strong>200 puzles</strong>. La lluvia recorre la piedra, el hielo ondula sobre los muros congelados, las llamas trepan por los pasillos y la niebla envuelve la mampostería. Los primeros planos del GIF muestran estos mismos efectos durante el juego.",
+          story_7: "Modo Infinito",
+          story_8: "Supera los cuatro Mundos Secretos para desbloquear una partida que sigue subiendo de nivel. El modo utiliza una colección de <strong>2.000 tableros</strong>, con efectos en los muros, fondos de templos y bordes de la interfaz que cambian a medida que avanzas. Comprueba hasta dónde puedes llegar en el marcador de Infinito cuando Google Play Games esté disponible.",
+          story_9: "Tesoros, cosméticos y Altar de Ofrendas",
+          story_10: "Consigue oro en los cofres de los templos y gástalo en la Tienda Estelar para personalizar tu avatar, Rocas Estrella, pedestales y rocas neutras. Después de la campaña, realiza ofrendas en el altar para ascender de rango y aumentar tu puntuación de Ofrendas. Los <strong>27 logros</strong> registran tus hitos desde la primera victoria hasta los retos más exigentes.",
+          story_11: "Juega a tu ritmo",
+          story_12: "Juega en vertical con controles de un deslizamiento, reinicia un tablero para probar otra ruta y ajusta por separado los efectos, la música, el ambiente y la vibración. La banda sonora incluye <strong>14 temas originales de estilo 16 bits</strong>. Juega sin conexión con guardado local. Con el inicio de sesión opcional de Google Play Games en una instalación Android compatible, puedes sincronizar el progreso y utilizar los logros y los marcadores de Ofrendas e Infinito.",
+          story_13: "<strong>Idiomas</strong> · Inglés, español, italiano y portugués.",
+          story_14: "Únete a la beta cerrada de Android",
+          story_15: "Prueba Star Rock Puzzle antes de su lanzamiento y ayúdanos a afinar los puzles. Utiliza la misma cuenta de Google en los tres pasos.",
+          story_16: "<a href=\"https://groups.google.com/g/star-rock-puzzle\">Únete al grupo de testers de Star Rock Puzzle</a>.",
+          story_17: "<a href=\"https://play.google.com/apps/testing/com.starrockpuzzle.game\">Acepta la invitación a la beta en Google Play</a>.",
+          story_18: "<a href=\"https://play.google.com/store/apps/details?id=com.starrockpuzzle.game\">Abre Google Play en tu dispositivo Android e instala Star Rock Puzzle</a>.",
+          story_19: "Cuéntanos qué puzles te gustó resolver y dónde te atascaste. Puedes enviar comentarios privados a través de Google Play.",
+          cta_beta: "Únete a la beta de Android"
+        },
+        it: {
+          story_0: "Una mossa, un piano, una soluzione perfetta",
+          story_1: "<strong>Star Rock Puzzle</strong> è un rompicapo a scorrimento in formato verticale, ambientato in templi in pixel art. Fai scorrere una roccia e continuerà a muoversi finché un muro o un'altra roccia la fermerà. Porta le Rocce Stella ai loro piedistalli, usa le rocce neutre per preparare la mossa successiva e apri il forziere del tempio quando risolvi il tabellone.",
+          story_2: "200 rompicapi in otto templi",
+          story_3: "Inizia con lezioni guidate, poi attraversa otto sezioni tematiche della campagna, dal Tempio Antico e dal Giardino Muschioso fino alla Caldera Vulcanica e alla Corona Stellare. I primi tabelloni insegnano a usare i muri come punti di arresto. Più avanti dovrai coordinare diverse Rocce Stella e rocce neutre.",
+          story_4: "Rigioca i livelli completati dal selettore, migliora il tuo numero di mosse e ottieni stelle dorate trovando percorsi ottimali.",
+          story_5: "Quattro Mondi Segreti con muri viventi",
+          story_6: "Completa la campagna per scoprire altri quattro mondi, ciascuno con <strong>200 rompicapi</strong>. La pioggia scorre sulla pietra, il ghiaccio increspa le pareti gelate, le fiamme risalgono i corridoi e la nebbia avvolge la muratura. I primi piani nella GIF mostrano gli stessi effetti durante il gioco.",
+          story_7: "Modalità Infinita",
+          story_8: "Supera i quattro Mondi Segreti per sbloccare una partita che continua a salire di livello. Una raccolta di <strong>2.000 tabelloni</strong> alimenta la modalità, mentre effetti sui muri, sfondi dei templi e cornici cambiano durante la progressione. Scopri quanto puoi salire nella classifica Infinita quando Google Play Games è disponibile.",
+          story_9: "Tesori, oggetti estetici e Altare delle Offerte",
+          story_10: "Ottieni oro dai forzieri dei templi e spendilo nel Negozio Stellare per personalizzare avatar, Rocce Stella, piedistalli e rocce neutre. Dopo la campagna, fai offerte all'altare per salire di rango e aumentare il punteggio Offerte. I <strong>27 obiettivi</strong> seguono i tuoi traguardi dalla prima vittoria alle sfide più impegnative.",
+          story_11: "Gioca al tuo ritmo",
+          story_12: "Gioca in verticale con comandi a scorrimento, ricomincia un tabellone per provare un altro percorso e regola separatamente effetti sonori, musica, ambiente e vibrazione. La colonna sonora comprende <strong>14 temi originali in stile 16 bit</strong>. Gioca offline con salvataggi locali. Con l'accesso facoltativo a Google Play Games su un'installazione Android compatibile, puoi sincronizzare i progressi e utilizzare obiettivi e classifiche Offerte e Infinita.",
+          story_13: "<strong>Lingue</strong> · Inglese, spagnolo, italiano e portoghese.",
+          story_14: "Partecipa alla beta chiusa Android",
+          story_15: "Prova Star Rock Puzzle in anteprima e aiutaci a perfezionare i rompicapi. Usa lo stesso account Google per tutti e tre i passaggi.",
+          story_16: "<a href=\"https://groups.google.com/g/star-rock-puzzle\">Unisciti al gruppo di tester di Star Rock Puzzle</a>.",
+          story_17: "<a href=\"https://play.google.com/apps/testing/com.starrockpuzzle.game\">Accetta l’invito alla beta su Google Play</a>.",
+          story_18: "<a href=\"https://play.google.com/store/apps/details?id=com.starrockpuzzle.game\">Apri Google Play sul tuo dispositivo Android e installa Star Rock Puzzle</a>.",
+          story_19: "Raccontaci quali rompicapi ti è piaciuto risolvere e dove hai avuto difficoltà. Puoi inviare commenti privati tramite Google Play.",
+          cta_beta: "Partecipa alla beta Android"
+        }
+      };
+
+      Object.keys(showcaseTranslations).forEach(function (lang) {
+        Object.assign(T[lang], showcaseTranslations[lang]);
+      });
+
       function applyLang(lang) {
         if (!T[lang]) lang = "en";
         var dict = T[lang];
@@ -611,12 +1011,20 @@
         document.querySelectorAll(".lang-btn").forEach(function (btn) {
           btn.setAttribute("aria-pressed", btn.getAttribute("data-lang") === lang ? "true" : "false");
         });
+        document.querySelectorAll(".lang-select").forEach(function (sel) {
+          sel.value = lang;
+        });
         try { localStorage.setItem("srp_lang", lang); } catch (e) {}
       }
 
       document.querySelectorAll(".lang-btn").forEach(function (btn) {
         btn.addEventListener("click", function () {
           applyLang(btn.getAttribute("data-lang"));
+        });
+      });
+      document.querySelectorAll(".lang-select").forEach(function (sel) {
+        sel.addEventListener("change", function () {
+          applyLang(sel.value);
         });
       });
 
